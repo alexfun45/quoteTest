@@ -153,7 +153,7 @@ bot.on('callback_query', async msg => {
       const res = await newQuotesBlock(chat);
       // test end
       if(!res){
-        let json_res = JSON.stringify(results),
+        let json_res = JSON.stringify(userTest.results),
             current_time = Date.now();
         let member = await bot.getChatMember(msg.message.chat.id, msg.message.chat.id);
         ADOdb.query(`INSERT INTO results(username, first_name, time, data) VALUES('${member.user.username}','${member.user.first_name}', '${current_time}', '${json_res}')`, 'run');
